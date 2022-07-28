@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, HttpStatus, Param, Post, Put, Res } from '@nestjs/common';
-import { UserEntity } from 'src/user';
+import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
+import { Users } from 'src/user/user';
 import { UserService } from './user.service';
+//import { Response } from 'express';
 
 @Controller('user')
 
@@ -13,9 +14,7 @@ export class UserController {
 
   @Get()
   async fillAll()  {
-  //async fillAll(@Res() res: Response)  {
     const response=await this.userService.findAll();
-    //res.status(HttpStatus.OK).json({payload : response});
     return response;
   }
 
@@ -26,13 +25,13 @@ export class UserController {
   }
 
   @Post()
-  async create(@Body() createUserDto: UserEntity,@Res() res:Response)  {
+  async create(@Body() createUserDto: Users,@Res() res:Response)  {
     const response=await this.userService.create(createUserDto);    
     return response;
   }
 
   @Put(":id")
-  async update(@Param() id: number,@Body() createUserDto: UserEntity,@Res() res:Response)  {
+  async update(@Param() id: number,@Body() createUserDto: Users,@Res() res:Response)  {
     const response=await this.userService.update(id,createUserDto);    
     return response;
   }
