@@ -1,0 +1,32 @@
+[14:20:59] Found 0 errors. Watching for file changes.
+
+[Nest] 4564  - 28/07/2565 14:21:00     LOG [NestFactory] Starting Nest application...
+[Nest] 4564  - 28/07/2565 14:21:00     LOG [InstanceLoader] TypeOrmModule dependencies initialized +99ms
+[Nest] 4564  - 28/07/2565 14:21:00   ERROR [ExceptionHandler] Nest can't resolve dependencies of the UserService (?). Please make sure that the argument UserEntityRepository at index [0] is available in the AppModule context.
+
+Potential solutions:
+- If UserEntityRepository is a provider, is it part of the current AppModule?
+- If UserEntityRepository is exported from a separate @Module, is that module imported within AppModule?
+  @Module({
+    imports: [ /* the Module containing UserEntityRepository */ ]
+  })
+
+Error: Nest can't resolve dependencies of the UserService (?). Please make sure that the argument UserEntityRepository at index [0] is available in the AppModule context.
+
+Potential solutions:
+- If UserEntityRepository is a provider, is it part of the current AppModule?
+- If UserEntityRepository is exported from a separate @Module, is that module imported within AppModule?
+  @Module({
+    imports: [ /* the Module containing UserEntityRepository */ ]
+  })
+
+    at Injector.lookupComponentInParentModules (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:241:19)
+    at Injector.resolveComponentInstance (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:194:33)
+    at resolveParam (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:116:38)
+    at async Promise.all (index 0)
+    at Injector.resolveConstructorParams (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:131:27)
+    at Injector.loadInstance (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:57:13)
+    at Injector.loadProvider (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\injector.js:84:9)
+    at async Promise.all (index 4)
+    at InstanceLoader.createInstancesOfProviders (C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\instance-loader.js:44:9)
+    at C:\Developer\SourceCode\nestjs\test-mysql-api1\node_modules\@nestjs\core\injector\instance-loader.js:29:13
