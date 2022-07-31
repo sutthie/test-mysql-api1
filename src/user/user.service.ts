@@ -17,9 +17,12 @@ export class UserService{
         return this.userRepository.find();
     }
 
-    findOne(id: number):Promise<Users>{
-        return this.userRepository.findOne({ where: { id: id } })
-    }
+    findOne(id:number):Promise<Users>{
+        return this.userRepository.findOneBy({id : id});
+      }
+    // findOne(id: number):Promise<Users>{
+    //     return this.userRepository.findOne({ where: { id: id } })
+    // }
 
     create(user:Users): Promise<Users>{
         return this.userRepository.save(user);
